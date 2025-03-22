@@ -16,7 +16,7 @@
       "id": "3",
       "name": "Ms. Zebra",
       "image": "https://media2.giphy.com/media/20G9uNqE3K4dRjCppA/source.gif",
-      "votes": "100"
+      "votes": 0
     },
     {
       "id": "4",
@@ -28,7 +28,13 @@
       "id": "5",
       "name": "Mme. Panda",
       "image": "https://media.giphy.com/media/ALalVMOVR8Qw/giphy.gif",
-      "votes": 15
+      "votes": 0
+    },
+    {
+      "id": "ee70",
+      "name": "NewGuy",
+      "image": "https://tr.rbxcdn.com/180DAY-b0959a20347ca861871f2bc71a3d3a58/384/216/Image/Jpeg/noFilter",
+      "votes": 10000
     }
   ]
 }

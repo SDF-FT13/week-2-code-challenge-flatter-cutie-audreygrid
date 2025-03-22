@@ -5,7 +5,10 @@ const Jina = document.getElementById("name");
 const Picha = document.getElementById("image");
 const vc = document.getElementById("vote-count");
 const vf = document.getElementById("votes-form");
+const rb = document.getElementById("reset-btn");
 const votes = document.getElementById("votes")
+const cf = document.getElementById("character-form")
+
 
 
 //          variables
@@ -57,7 +60,7 @@ function displayFlatacuties(){
 }
 
 vf.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevents page reload
+    event.preventDefault(); 
     let update = {
         votes: parseInt(votes.value, 10) + parseInt(currentVotes, 10)
     }
@@ -69,6 +72,40 @@ vf.addEventListener("submit", function(event) {
     })
 });
 
+rb.addEventListener("click", function(event) {
+    let update = {
+        votes: 0,
+    }
+    console.log("Votes entered:", votes);
+    fetch(`http://localhost:3000/characters/${currentID}`, {
+        method: "PATCH",
+        headers: {"Content-Type": "application/json",},
+        body: JSON.stringify(update)
+    })
+});
 
+
+cf.addEventListener("submit", function(event) {
+    event.preventDefault(); 
+
+    let Jin = document.getElementById("nameInsert").value;
+    let imageUrl = document.getElementById("image-url").value;
+
+    
+    console.log("Character Name:", Jin);
+    console.log("Image URL:", imageUrl);
+    const newChar = {
+        name: Jin,
+        image: imageUrl,
+        votes: 0,
+    }
+
+    fetch(`http://localhost:3000/characters`,{
+        method: "POST",
+        headers:{"Content-Type": "application/json",},
+        body: JSON.stringify(newChar)
+    })
+   
+});
 
 displayFlatacuties()
